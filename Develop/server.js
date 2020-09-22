@@ -1,6 +1,7 @@
 // Dependencies
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 
 // Set up the Express App
 const app = express();
@@ -20,6 +21,13 @@ app.get("/", function (req, res) {
 
 app.get("/notes", function (req, res) {
   res.sendFile(path.join(__dirname, "/public/notes.html"));
+});
+
+// Read the notes json file
+app.get("/api/notes", function (req, res) {
+  let rawNotes = fs.readFileSync(path.join(__dirname, "/db/db.json"));
+  let notes = JSON.parse(rawNotes);
+  console.log(notes);
 });
 
 // Starts the server to begin listening
