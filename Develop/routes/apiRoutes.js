@@ -32,8 +32,7 @@ module.exports = function (app) {
 
     fs.writeFile("db/db.json", JSON.stringify(notes), "utf8", (err) => {
       if (err) throw err;
-      console.log("File Written Successfully");
-      res.json(true);
+      res.json(notes);
     });
   });
 
