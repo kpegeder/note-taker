@@ -17,8 +17,8 @@ app.use(express.static("public"));
 
 // Basic route that sends the user to the homepage or notes page
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./Develop/routes/apiRoutes")(app);
+require("./Develop/routes/htmlRoutes")(app);
 
 // Starts the server to begin listening
 app.listen(PORT, function () {
