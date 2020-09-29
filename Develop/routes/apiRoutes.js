@@ -1,9 +1,4 @@
-// ===============================================================================
 // LOAD DATA
-// We are linking our routes to a series of "data" sources.
-// These data sources hold arrays of information on table-data, waitinglist, etc.
-// ===============================================================================
-
 const noteList = require("../db/db");
 const fs = require("fs");
 
@@ -43,7 +38,7 @@ module.exports = function (app) {
     for (let i = 0; i < noteList.length; i++) {
       if (noteList[i].id === noteID) {
         noteList.splice(i, 1);
-        console.log("Delete this");
+        break;
       }
     }
     fs.writeFile(
